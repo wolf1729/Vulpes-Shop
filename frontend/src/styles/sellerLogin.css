@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Kode+Mono:wght@400..700&display=swap');
+
+.seller-login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.seller-form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.seller-form input {
+  font-family: 'Anta';
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.seller-form button {
+  font-family: 'Kode Mono';
+  text-transform: uppercase;
+  outline: 0;
+  background: #FF4742;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.seller-form button:hover,.seller-form button:active,.seller-form button:focus {
+  background: #FF4742;
+}
+.seller-form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.seller-form .message a {
+  color: #FF4742;
+  text-decoration: none;
+}
+.seller-form .register-form {
+  display: none;
+}
+
+.seller-container{
+    height: 100vh;
+    width: 100vw;
+    background: #FF4742;
+    background: linear-gradient(90deg, #FF4742 0%, #FF4742 50%);
+    font-family: 'Anta';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
+}

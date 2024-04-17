@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Kode+Mono:wght@400..700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.buyer-login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.buyer-form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.buyer-form input {
+  font-family: 'Anta';
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.buyer-form button {
+  font-family: 'Kode Mono';
+  text-transform: uppercase;
+  outline: 0;
+  background: #0a6bff;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.buyer-form button:hover,.buyer-form button:active,.buyer-form button:focus {
+  background: #0a6bff;
+}
+.buyer-form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.buyer-form .message a {
+  color: #0a6bff;
+  text-decoration: none;
+}
+.buyer-form .register-form {
+  display: none;
+}
+
+.buyer-container {
+  height: 100vh;
+  width: 100vw;
+  background: #0a6bff; 
+  background: linear-gradient(90deg,#0a6bff  0%,#0a6bff 50%);
+  font-family: "Anta";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}

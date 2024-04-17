@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Kode+Mono:wght@400..700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.top{
+    width: 100vw;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.greeting{
+    color: black;
+    margin: 10px;
+    font-family: 'Anta';
+    font-size: 20px;
+}
+
+.sellerbuttonContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+}
+
+.logoutButton, .addProductButton{
+    margin-right: 20px;
+}
+
+.logoutButton {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Kode Mono';
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+  
+.logoutButton:hover, .sellerButton:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+  
+.logoutButton:active {
+    opacity: .5;
+}
+
+.addProductButton {
+    background: #2C974B;
+    border: 1px solid #2C974B;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Kode Mono';
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+  
+.addProductButton:hover, .sellerButton:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #2C974B;
+}
+  
+.addProductButton:active {
+    opacity: .5;
+}
+
+.sellerProductContainer{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+

@@ -24,7 +24,7 @@ const connectDB = async (dbURL) => {
 };
 
 const corsOptions = {
-  origin: "https://vulpes-shop.onrender.com/", // frontend URI (ReactJS)
+  origin: "https://vulpes-shop.onrender.com", // frontend URI (ReactJS)
 }
 
 //Middleware

@@ -1,11 +1,12 @@
 const baseURL = 'https://vulpesshopbackend.onrender.com'
 
-const newBuyerSignUp = async(username, password) => {
+const newBuyerSignUp = async(name, username, password) => {
     try{
         fetch(`${baseURL}/buyerAuth/sign-up`, {
             method: 'POST',
 
             body: JSON.stringify({
+                name: name,
                 username: username,
                 password: password,
                 cart: []

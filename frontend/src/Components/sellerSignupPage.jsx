@@ -31,7 +31,7 @@ function SellerSignupPage() {
             <div className="seller-login-page">
                 <div className="seller-form">
                     <form className="seller-login-form" onSubmit={e=> e.preventDefault()}>
-                        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                        <input type="email" placeholder="Email" value={username} onChange={(e) => setUsername(e.target.value)}/>
                         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
                         <input type="number" placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)}/>

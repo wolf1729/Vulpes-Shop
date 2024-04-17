@@ -3,9 +3,10 @@ const asyncHandler = require('express-async-handler')
 
 //Controller to add new buyer details to database
 const addNewBuyer = asyncHandler( async(req, res) => {
-    const { username, password } = req.body
+    const { name, username, password, } = req.body
     try{
         const userDetails = {
+            name: name,
             username: username,
             password: password,
             cart: []

@@ -66,6 +66,7 @@ function SellerProductPage() {
                     maxW={{ base: '100%', sm: '200px' }}
                     src={details.productImg}
                     alt='Caffe Latte'
+                    margin="20px"
                     />
                     <Stack>
                         <CardBody>

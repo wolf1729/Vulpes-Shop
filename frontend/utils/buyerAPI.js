@@ -1,4 +1,4 @@
-const baseURL = 'https://vulpesshop.onrender.com/'
+const baseURL = 'https://vulpesshopbackend.onrender.com/'
 
 const newBuyerSignUp = async(username, password) => {
     try{

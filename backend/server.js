@@ -23,9 +23,13 @@ const connectDB = async (dbURL) => {
   }
 };
 
+const corsOptions = {
+  origin: "https://vulpes-shop.onrender.com/", // frontend URI (ReactJS)
+}
+
 //Middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors(corsOptions))
 
 // Buyerauth routes
 app.use('/', mainRoute);

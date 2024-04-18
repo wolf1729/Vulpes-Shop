@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 const addNewBuyer = asyncHandler( async(req, res) => {
     const { name, username, password, } = req.body
 
-    const passwordHash = bcrypt.hash(password, 10);
+    const passwordHash = await bcrypt.hash(password, 10);
 
     try{
         const userDetails = {

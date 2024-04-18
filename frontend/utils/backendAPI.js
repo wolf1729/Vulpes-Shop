@@ -25,7 +25,6 @@ const getDetails = async(productId) => {
             }
         })
         const data = await details.json()
-        console.log(data)
         return data
     }
     catch(err) {
@@ -49,7 +48,6 @@ const addProductAPI = async(name, price, image, description, sellerId) => {
             }
         })
         const data = await response.json()
-        console.log(data)
         return data
     }
     catch(err) {
@@ -69,7 +67,6 @@ const getSellerProductsAPI = async(productId) => {
             }
         })
         const data = await response.json()
-        console.log(data)
         return data
     }
     catch(err) {
@@ -89,7 +86,6 @@ const getBuyerProductsAPI = async(productId) => {
             }
         })
         const data = await response.json()
-        console.log(data)
         return data
     }
     catch(err) {
@@ -109,7 +105,6 @@ const deleteProduct = async(productId) => {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
-        console.log('product deleted')
     }
     catch(err) {
         console.log(err)

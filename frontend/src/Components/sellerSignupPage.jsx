@@ -2,8 +2,10 @@ import '../styles/sellerLogin.css'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { newSellerSignUp } from '../../utils/sellerAPI'
+import { useToast } from '@chakra-ui/react';
 
 function SellerSignupPage() {
+    const toast = useToast();
     const navigate = useNavigate()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -13,11 +15,25 @@ function SellerSignupPage() {
     const makeNewSellerUser = async() => {
         try{
             await newSellerSignUp(username, password, name, phone)
+
+            toast({
+                title: 'Seller account created successfully.',
+                status: 'success',
+                duration: 4000,
+                isClosable: true,
+            });
+
             console.log('Seller created')
             navigationFunction('/sellerLogin')
         }
         catch(err) {
             console.log(err)
+            toast({
+                title: 'An error occurred during account creation. Please try again.',
+                status: 'error',
+                duration: 4000,
+                isClosable: true,
+            });
         }
     }
 

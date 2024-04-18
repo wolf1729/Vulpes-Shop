@@ -42,7 +42,7 @@ function BuyerDashboard() {
 
     gettingBuyerDetails()
     getAllProducts()
-  }, [])
+  })
 
   // Logout Function
   const handleLogout = () => {
@@ -51,6 +51,11 @@ function BuyerDashboard() {
   };
 
   const showingAllProducts = () => {
+
+    if (productArray.length === 0) {
+      return <p>No Product Available</p>;
+    }
+
     return productArray.map((e) => (
       <EachProductTab productImg={e.productImg} productName={e.productName} productPrice={e.productPrice} key={e._id} productId={e._id} isBuyer={true} isCart={false}/>
     ))

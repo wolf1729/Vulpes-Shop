@@ -16,8 +16,6 @@ const newBuyerSignUp = async(name, username, password) => {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
-
-        console.log('Buyer Added Successfully')
     }
     catch(err) {
         console.log(err)
@@ -57,7 +55,6 @@ const buyerDetails = async(buyerId) => {
             }
         })
         const data = await response.json()
-        console.log(data)
         return data
     }
     catch(err) {
@@ -78,7 +75,6 @@ const addProductToCart = async(id, productId) => {
             }
         })
         const data = await response.json()
-        console.log(data)
         return data
     } 
     catch(err) {
@@ -100,8 +96,6 @@ const removeProductFromCart = async(userId, productId) => {
             }
         })
         const data = await response.json()
-        console.log('item delete from buyer database')
-        console.log(data)
         return data
     }
     catch(err) {

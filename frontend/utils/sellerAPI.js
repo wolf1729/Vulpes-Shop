@@ -17,8 +17,6 @@ const newSellerSignUp = async(username, password, name, phone) => {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
-
-        console.log('Seller Added Successfully')
     }
     catch(err) {
         console.log(err)
@@ -39,7 +37,6 @@ const existingUserDetails = async(username, password) => {
             }
         })
         const data = await response.json()
-        console.log(data)
         return data
     }
     catch(err) {
@@ -59,7 +56,6 @@ const sellerDetailsAfterLogin = async(sellerId) => {
             }
         })
         const data = await response.json()
-        console.log(data)
         return data
     }
     catch(err) {
@@ -81,7 +77,6 @@ const addProductId = async(id, productId) => {
             }
         })
         const data = await response.json()
-        console.log(data)
         return data
     }
     catch(err) {
@@ -103,8 +98,6 @@ const removeProductid = async(userId, productId) => {
             }
         })
         const data = await response.json()
-        console.log('item delete from both product database and seller database')
-        console.log(data)
         return data
     }
     catch(err) {
@@ -125,7 +118,6 @@ const gettingBasicSellerDetails = async(id) => {
             }
         })
         const data = await response.json()
-        console.log(data)
         return data
     }
     catch(err) {

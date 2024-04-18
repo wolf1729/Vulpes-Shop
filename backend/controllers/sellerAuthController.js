@@ -16,7 +16,6 @@ const addNewSeller = asyncHandler( async(req, res) => {
         const newUser = new sellerAuthModel(userDetails);
         await newUser.save();
         res.send('New User Added')
-        console.log(`New User added: ${username}`);
     }
     catch(err) {
         console.log(err)
@@ -33,13 +32,12 @@ const loginExistingSeller = asyncHandler( async(req, res) => {
             res.json({
                 sellerId: userDetails._id
             })
-            console.log(userDetails._id)
-        }
-        else {
-            res.send('Email or Password is wrong')
         }
     }
     catch(err) {
+        res.json({
+            sellerId: null
+        })
         console.log('Error in Fetching details')
     }
 })
@@ -51,7 +49,6 @@ const sellerDetails = asyncHandler(async(req, res) => {
     try{
         const userDetails = await sellerAuthModel.findOne({ _id: sellerId })
         res.send(userDetails)
-        console.log(userDetails)
     }
     catch(err) {
         console.log(err)
@@ -70,7 +67,6 @@ const addProductIdToSellerData = asyncHandler( async(req, res) => {
       
           // Check if the update was successful
           if (result.nModified === 1) {
-            console.log('Element added to the array.');
             res.send('added')
             return true;
           } else {
@@ -90,7 +86,6 @@ const deleteProductId = asyncHandler(async(req, res) => {
 
     try{
         const deleteTheProductId = await sellerAuthModel.updateOne({ "_id": userId }, { $pull: { "product" : productId}})
-        console.log('productId Deleted')
     }
     catch(err) {
         console.log(err)
@@ -107,7 +102,6 @@ const sellerBasicDetails = asyncHandler(async(req, res) => {
             name: basicDetails.name,
             phone: basicDetails.phone
         })
-        console.log(basicDetails)
     }
     catch(err) {
         console.log(err)

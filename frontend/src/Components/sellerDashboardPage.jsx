@@ -40,10 +40,14 @@ function SellerDashboardPage() {
     };
 
     sellerProductList();
-  }, []); 
+  }); 
 
   // Function to render seller products
   const showingSellerProducts = () => {
+    if (sellerProductDetails.length === 0) {
+      return <p>No Product Uploaded</p>;
+    }
+
     return sellerProductDetails.map((item) => (
       <EachProductTab
         key={item._id}

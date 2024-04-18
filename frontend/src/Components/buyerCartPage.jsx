@@ -36,7 +36,7 @@ function BuyerCartPage() {
         };
     
         buyerCartList();
-    }, []); 
+    }); 
     
 
     // Logout Function
@@ -70,7 +70,7 @@ function BuyerCartPage() {
         <>
         <div>
             <div className="buyertop">
-                <p className="buyergreeting">Welcome, {user.buyerId}</p>
+                <p className="buyergreeting">Welcome, {buyerInfo.name}</p>
                 <div className="buyerbuttonContainer">
                     <button className="buyerlogoutButton" onClick={handleLogout}>LogOut</button>
                 </div>

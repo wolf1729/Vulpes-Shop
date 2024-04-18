@@ -15,7 +15,6 @@ const addNewBuyer = asyncHandler( async(req, res) => {
         const newUser = new buyerAuthModel(userDetails);
         await newUser.save();
         res.send('New User Added')
-        console.log(`New User added: ${username}`);
     }
     catch(err) {
         console.log(err)
@@ -32,11 +31,12 @@ const loginExistingBuyer = asyncHandler( async(req, res) => {
             res.json({
                 buyerId: userDetails._id
             })
-            console.log(userDetails)
         }
     }
     catch(err) {
-        console.log('Error in Fetching details')
+        res.json({
+            buyerId: null
+        })
     }
 })
 
@@ -47,7 +47,6 @@ const buyerDetails = asyncHandler(async(req, res) => {
     try{
         const userDetails = await buyerAuthModel.findOne({ _id: buyerId })
         res.send(userDetails)
-        console.log(userDetails)
     }
     catch(err) {
         console.log(err)
@@ -66,7 +65,6 @@ const addProductToBuyerCart = asyncHandler( async(req, res) => {
       
           // Check if the update was successful
           if (result.nModified === 1) {
-            console.log('Element added to the array.');
             res.send('added')
             return true;
           } else {
@@ -86,7 +84,6 @@ const removeProductFromCart = asyncHandler(async(req, res) => {
 
     try{
         await buyerAuthModel.updateOne({ "_id": userId }, { $pull: { "cart" : productId }})
-        console.log('productId Deleted')
     }
     catch(err) {
         console.log(err)

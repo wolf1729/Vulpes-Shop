@@ -1,5 +1,6 @@
 const sellerAuthModel = require('../models/sellerModel')
 const asyncHandler = require('express-async-handler')
+const bcrypt = require('bcrypt')
 
 //controller to add new seller user
 const addNewSeller = asyncHandler( async(req, res) => {

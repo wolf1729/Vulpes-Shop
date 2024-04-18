@@ -29,15 +29,15 @@ const addNewBuyer = asyncHandler( async(req, res) => {
 const loginExistingBuyer = asyncHandler( async(req, res) => {
     const { username, password } = req.body
 
-    const passwordHash = await bcrypt.hash(password, 10)
-
     try{
         const userDetails = await buyerAuthModel.findOne({ username: username })
         
-        if (userDetails.password === passwordHash ){
-            res.json({
-                buyerId: userDetails._id
-            })
+        const isPasswordMatch = await bcrypt.compare(password, userDetails.password);
+
+        if (isPasswordMatch) {
+            return res.json({ buyerId: userDetails._id });
+        } else {
+            return res.json({ buyerId: null });
         }
     }
     catch(err) {

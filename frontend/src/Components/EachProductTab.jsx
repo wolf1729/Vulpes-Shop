@@ -24,6 +24,7 @@ function EachProductTab({ productName, productPrice, productImg, productId, isBu
         try{
             await removeProductFromCart(user.buyerId, productId)
             console.log('Product deleted from Cart')
+            navigate('/sellerDashboard')
         }
         catch(err) {
             console.log(err)

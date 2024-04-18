@@ -6,26 +6,26 @@ import AddProductModal from './addProductModal';
 import { getSellerProductsAPI } from '../../utils/backendAPI';
 import EachProductTab from '../Components/EachProductTab';
 import { sellerDetailsAfterLogin } from '../../utils/sellerAPI';
-
+import { Spinner, Stack } from '@chakra-ui/react'
 
 function SellerDashboardPage() {
   const [cookies, removeCookies] = useCookies(['user']);
   const user = cookies.user;
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [sellerDetails, setSellerDetails] = useState([])
+  const [sellerDetails, setSellerDetails] = useState([]);
   const [sellerProductDetails, setSellerProductDetails] = useState([]);
+  const [loading, setLoading] = useState(false); // Loading state
   const navigate = useNavigate();
-  console.log(user);
   
   useEffect(() => {
     const sellerProductList = async () => {
       try {
+        setLoading(true); // Set loading to true before fetching data
         const sellerId = user.sellerId;
-        const seller = await sellerDetailsAfterLogin(sellerId)
-        setSellerDetails(seller)
-
-        const productIds = seller.product
+        const seller = await sellerDetailsAfterLogin(sellerId);
+        setSellerDetails(seller);
+        
+        const productIds = seller.product;
         const productDetailsArray = [];
 
         for (const productId of productIds) {
@@ -36,13 +36,14 @@ function SellerDashboardPage() {
         setSellerProductDetails(productDetailsArray);
       } catch (err) {
         console.log(err);
+      } finally {
+        setLoading(false); // Set loading to false after fetching data
       }
     };
 
     sellerProductList();
-  }); 
-
-  // Function to render seller products
+  }, [user]); // Add user to dependency array
+  
   const showingSellerProducts = () => {
     if (sellerProductDetails.length === 0) {
       return <p>No Product Uploaded</p>;
@@ -60,7 +61,6 @@ function SellerDashboardPage() {
     ));
   };
 
-  // Logout Function
   const handleLogout = () => {
     removeCookies('user');
     navigate('/');
@@ -86,7 +86,14 @@ function SellerDashboardPage() {
           </div>
         </div>
         <div className='sellerProductContainer'>
-          {showingSellerProducts()}
+          {/* Render the loading spinner while loading */}
+          {loading ? (
+            <Stack direction='row' spacing={4}>
+              <Spinner size='xl' />
+            </Stack>
+          ) : (
+            showingSellerProducts()
+          )}
         </div>
       </div>
     </>

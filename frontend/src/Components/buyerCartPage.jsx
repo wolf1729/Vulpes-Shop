@@ -37,7 +37,7 @@ function BuyerCartPage() {
         };
     
         buyerCartList();
-    }, [user.buyerId, buyerInfo, cartProductDetails]); 
+    }); 
     
 
     // Logout Function

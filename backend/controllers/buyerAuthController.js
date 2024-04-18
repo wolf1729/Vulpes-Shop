@@ -1,14 +1,18 @@
 const buyerAuthModel = require('../models/buyerModel')
 const asyncHandler = require('express-async-handler')
+const bcrypt = require('bcrypt')
 
 //Controller to add new buyer details to database
 const addNewBuyer = asyncHandler( async(req, res) => {
     const { name, username, password, } = req.body
+
+    const passwordHash = bcrypt.hash(password, 10);
+
     try{
         const userDetails = {
             name: name,
             username: username,
-            password: password,
+            password: passwordHash,
             cart: []
         }
         

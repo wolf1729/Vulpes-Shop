@@ -41,7 +41,7 @@ function SellerDashboardPage() {
     };
 
     sellerProductList();
-  }); 
+  }, []); 
 
   // Function to render seller products
   const showingSellerProducts = () => {

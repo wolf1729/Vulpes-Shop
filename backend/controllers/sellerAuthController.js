@@ -4,10 +4,13 @@ const asyncHandler = require('express-async-handler')
 //controller to add new seller user
 const addNewSeller = asyncHandler( async(req, res) => {
     const { username, password, name, phone } = req.body
+
+    const passwordHash = await bcrypt.hash(password, 10);
+
     try{
         const userDetails = {
             username: username,
-            password: password,
+            password: passwordHash,
             name: name,
             phone: phone,
             products: []

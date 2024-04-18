@@ -28,10 +28,13 @@ const addNewBuyer = asyncHandler( async(req, res) => {
 //Controller to get login details of the existing user
 const loginExistingBuyer = asyncHandler( async(req, res) => {
     const { username, password } = req.body
+
+    const passwordHash = await bcrypt.hash(password, 10)
+
     try{
         const userDetails = await buyerAuthModel.findOne({ username: username })
         
-        if (userDetails.password === password ){
+        if (userDetails.password === passwordHash ){
             res.json({
                 buyerId: userDetails._id
             })

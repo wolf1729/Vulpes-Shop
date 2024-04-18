@@ -15,7 +15,8 @@ function EachProductTab({ productName, productPrice, productImg, productId, isBu
         try {
             await addProductToCart(user.buyerId, productId);
             console.log('Product added to Cart');
-        } catch (err) {
+        } 
+        catch (err) {
             console.log(err);
         }
     }

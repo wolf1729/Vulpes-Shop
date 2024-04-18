@@ -23,13 +23,14 @@ const connectDB = async (dbURL) => {
   }
 };
 
-const corsOptions = {
-  origin: "https://vulpes-shop.onrender.com", // frontend URI (ReactJS)
-}
+// const corsOptions = {
+//   origin: "https://vulpes-shop.onrender.com", // frontend URI (ReactJS)
+// }
 
 //Middleware
 app.use(express.json())
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
+app.use(cors())
 
 // Buyerauth routes
 app.use('/', mainRoute);

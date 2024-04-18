@@ -20,4 +20,7 @@ router.post('/getBuyerProducts', productController.getBuyerProductDetails)
 //API to delete the product from product database
 router.post('/deleteProduct', productController.deleteProductfromMainDatabase)
 
+//API to search product by name
+router.post('/searchProductByName', productController.searchProductName)
+
 module.exports = router

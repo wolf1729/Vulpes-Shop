@@ -88,4 +88,20 @@ const deleteProductfromMainDatabase = asyncHandler(async(req, res) => {
     }
 })
 
-module.exports = { allProducts, productDetails, addProductToDatabase, getSellersProductDetails, getBuyerProductDetails, deleteProductfromMainDatabase }
+//Controller to search product name
+const searchProductName = asyncHandler(async(req, res) => {
+    const { searchName } = req.body
+
+    try{
+        const products = await productModel.find({ productName: searchName })
+        res.send(products)
+    }
+    catch(err) {
+        console.log(err)
+        res.json({
+            product: null
+        })
+    }
+})
+
+module.exports = { allProducts, productDetails, addProductToDatabase, getSellersProductDetails, getBuyerProductDetails, deleteProductfromMainDatabase, searchProductName }

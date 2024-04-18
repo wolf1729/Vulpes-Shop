@@ -1,4 +1,5 @@
-const baseURL = "https://vulpesshopbackend.onrender.com"
+// const baseURL = "https://vulpesshopbackend.onrender.com"
+const baseURL = "http://localhost:3000"
 
 //Function to get all the product details
 const allProducts = async() => {
@@ -111,4 +112,23 @@ const deleteProduct = async(productId) => {
     }
 }
 
-export { allProducts, addProductAPI, getSellerProductsAPI, getBuyerProductsAPI, deleteProduct, getDetails }
+const searchedProductByNameDetails = async(searchedName) => {
+    try{
+        const details = await fetch(`${baseURL}/searchProductByName`, {
+            method: 'POST',
+            body: JSON.stringify({
+                searchName: searchedName
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        const data = await details.json()
+        return data
+    }
+    catch(err) {
+        console.log(err)
+    }
+}
+
+export { allProducts, addProductAPI, getSellerProductsAPI, getBuyerProductsAPI, deleteProduct, getDetails, searchedProductByNameDetails }

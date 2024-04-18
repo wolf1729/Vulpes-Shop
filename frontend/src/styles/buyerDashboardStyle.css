@@ -124,3 +124,15 @@
     width: 500px;
     height: 500px;
 }
+
+.searchContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchButton {
+    margin-left: 5px;
+}

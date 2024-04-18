@@ -115,3 +115,7 @@
     justify-content: space-evenly;
 }
 
+.emptySellerImage {
+    width: 500px;
+    height: 500px;
+}

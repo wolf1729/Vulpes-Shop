@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { existingUserDetails } from '../../utils/sellerAPI';
 import { useCookies } from 'react-cookie';
 import { useToast } from '@chakra-ui/react';
+import sellerImage from '../Images/seller_3.jpg'
 
 function SellerLoginPage() {
     const toast = useToast();
@@ -50,6 +51,9 @@ function SellerLoginPage() {
 
     return (
         <div className='seller-container'>
+            <div className='sellerImageContainer'>
+                <img src={sellerImage} alt="" className='sellerImage'/>
+            </div>
             <div className="seller-login-page">
                 <div className="seller-form">
                     <form className="seller-login-form" onSubmit={handleSubmit}>

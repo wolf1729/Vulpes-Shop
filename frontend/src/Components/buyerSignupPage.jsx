@@ -3,6 +3,7 @@ import '../styles/buyerLogin.css';
 import { useNavigate } from 'react-router-dom';
 import { newBuyerSignUp } from '../../utils/buyerAPI';
 import { useToast } from '@chakra-ui/react';
+import buyerSignUpImage from '../Images/buyerSignup.jpg'
 
 function BuyerSignupPage() {
     const toast = useToast();
@@ -43,6 +44,9 @@ function BuyerSignupPage() {
     return (
         <>
             <div className='buyer-container'>
+                <div className='buyerImageContainer'>
+                    <img src={buyerSignUpImage} alt="" className='buyerSignUpImage'/>
+                </div>
                 <div className="buyer-login-page">
                     <div className="buyer-form">
                         <form className="buyer-login-form" onSubmit={handleSubmit}>

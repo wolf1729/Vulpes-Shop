@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { newSellerSignUp } from '../../utils/sellerAPI'
 import { useToast } from '@chakra-ui/react';
+import sellerSignUpImage from '../Images/3841246.jpg'
 
 function SellerSignupPage() {
     const toast = useToast();
@@ -44,6 +45,9 @@ function SellerSignupPage() {
     return (
         <>
         <div className='seller-container'>
+            <div className='sellerImageContainer'>
+                <img src={sellerSignUpImage} alt="" className='sellerSignUpImage'/>
+            </div>
             <div className="seller-login-page">
                 <div className="seller-form">
                     <form className="seller-login-form" onSubmit={e=> e.preventDefault()}>

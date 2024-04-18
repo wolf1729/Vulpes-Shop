@@ -1,0 +1,30 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.inputs{
+    margin: 10px;
+    border: solid 1px black;
+}
+
+.formSubmitButton{
+    width: 80px;
+    height: 25px;
+    border: none;
+    outline: none;
+    background: #2f2f2f;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 20px 10px;
+}
+
+.textArea{
+    resize: none;
+}

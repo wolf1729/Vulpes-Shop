@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { allProducts } from '../../utils/backendAPI';
 import EachProductTab from './EachProductTab';
 import { buyerDetails } from '../../utils/buyerAPI';
+import noBuyerProduct from '../Images/noBuyerProduct.jpg'
 
 //THINGS TO ADD TO SELLER DASHBOARD: logout, showing all products, adding a product to cart
 
@@ -53,7 +54,7 @@ function BuyerDashboard() {
   const showingAllProducts = () => {
 
     if (productArray.length === 0) {
-      return <p>No Product Available</p>;
+      return <img src={noBuyerProduct} alt="" className='emptyBuyerDashboard'/>;
     }
 
     return productArray.map((e) => (

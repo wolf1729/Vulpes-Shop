@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import EachProductTab from "./EachProductTab";
 import { getBuyerProductsAPI } from "../../utils/backendAPI";
 import { useNavigate } from "react-router-dom";
+import emptyCart from '../Images/noCartProduct.jpg'
 
 function BuyerCartPage() {
     const [cookies, removeCookies] = useCookies(['user']);
@@ -47,7 +48,7 @@ function BuyerCartPage() {
 
     const showingAllCartProducts = () => {
       if (cartProductDetails.length === 0) {
-          return <p>No products in your cart</p>;
+          return <img src={emptyCart} alt="" className="emptyCart"/>
       }
       
       return cartProductDetails

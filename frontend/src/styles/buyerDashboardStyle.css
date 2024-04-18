@@ -114,3 +114,13 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+.emptyCart{
+    width: 500px;
+    height: 500px;
+}
+
+.emptyBuyerDashboard{
+    width: 500px;
+    height: 500px;
+}

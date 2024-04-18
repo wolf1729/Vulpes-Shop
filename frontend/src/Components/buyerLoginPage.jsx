@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { existingBuyerUserDetails } from '../../utils/buyerAPI';
 import { useCookies } from 'react-cookie';
 import { useToast } from '@chakra-ui/react';
+import sellerLoginImage from '../Images/buyerLogin.jpg'
 
 function BuyerLoginPage() {
     const toast = useToast();
@@ -55,6 +56,9 @@ function BuyerLoginPage() {
 
     return (
         <div className='buyer-container'>
+            <div className='buyerImageContainer'>
+                <img src={sellerLoginImage} alt="" className='buyerImage'/>
+            </div>
             <div className="buyer-login-page">
                 <div className="buyer-form">
                     <form className="buyer-login-form" onSubmit={handleSubmit}>

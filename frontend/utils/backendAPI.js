@@ -1,4 +1,4 @@
-const baseURL = 'https://vulpesshopbackend.onrender.com'
+const baseURL = "https://vulpesshopbackend.onrender.com"
 
 //Function to get all the product details
 const allProducts = async() => {

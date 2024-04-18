@@ -1,4 +1,5 @@
 import '../styles/sellerDashboardStyle.css';
+import emptySellerProduct from '../Images/emptySeller.jpg'
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -45,7 +46,7 @@ function SellerDashboardPage() {
   // Function to render seller products
   const showingSellerProducts = () => {
     if (sellerProductDetails.length === 0) {
-      return <p>No Product Uploaded</p>;
+      return <img src={emptySellerProduct} alt="" className='emptySellerImage'/>;
     }
 
     return sellerProductDetails.map((item) => (

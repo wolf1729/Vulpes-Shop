@@ -5,7 +5,14 @@
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+  height: 100vh;
 }
+
 .seller-form {
   position: relative;
   z-index: 1;
@@ -58,11 +65,27 @@
 }
 
 .seller-container{
-    height: 100vh;
-    width: 100vw;
-    background: #FF4742;
-    background: linear-gradient(90deg, #FF4742 0%, #FF4742 50%);
-    font-family: 'Anta';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;      
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Anta';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;      
+}
+
+.sellerImageContainer{
+  width: 60vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.sellerSignUpImage{
+  width: 80%;
+  height: 100%;
 }

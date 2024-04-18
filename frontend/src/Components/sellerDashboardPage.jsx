@@ -42,7 +42,7 @@ function SellerDashboardPage() {
     };
 
     sellerProductList();
-  }, [user]); // Add user to dependency array
+  }); // Add user to dependency array
   
   const showingSellerProducts = () => {
     if (sellerProductDetails.length === 0) {

@@ -28,3 +28,7 @@
 .textArea{
     resize: none;
 }
+
+.textInput{
+    width: 300px;
+}

@@ -61,9 +61,9 @@ const AddProductModal = ({ isOpen, onRequestClose }) => {
         style={customStyles}
       >
         <form onSubmit={e=> e.preventDefault()}>
-          <input type="text" placeholder='name of the product' value={productName} onChange={(e) => setProductName(e.target.value)} className='inputs'/>
+          <input type="text" placeholder='name of the product' value={productName} onChange={(e) => setProductName(e.target.value)} className='inputs textInput'/>
           <br />
-          <input type="text" placeholder='price of the product' value={productPrice} onChange={(e) => setProductPrice(e.target.value)} className='inputs'/>
+          <input type="text" placeholder='price of the product' value={productPrice} onChange={(e) => setProductPrice(e.target.value)} className='inputs textInput'/>
           <br />
           <textarea type="text" placeholder='description of the product' value={productDes} onChange={(e) => setProductDes(e.target.value)} className='inputs textArea' rows="8" cols="80"/>
           {/* <input type="text" placeholder='description of the product' rows="4" cols="50" value={productDes} onChange={(e) => setProductDes(e.target.value)} className='inputs'/> */}

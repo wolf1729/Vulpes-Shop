@@ -30,8 +30,10 @@ const loginExistingSeller = asyncHandler( async(req, res) => {
     const { username, password } = req.body
     try{
         const userDetails = await sellerAuthModel.findOne({ username: username })
+
+        const isPasswordMatch = await bcrypt.compare(password, userDetails.password)
         
-        if (userDetails.password === password ){
+        if (isPasswordMatch){
             res.json({
                 sellerId: userDetails._id
             })

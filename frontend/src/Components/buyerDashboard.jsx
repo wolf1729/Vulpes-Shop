@@ -51,7 +51,7 @@ function BuyerDashboard() {
 
     gettingBuyerDetails()
     getAllProducts()
-  })
+  }, [])
 
   const searchingProductWithNameFunction = async() => {
     try{

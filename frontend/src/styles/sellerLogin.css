@@ -89,3 +89,34 @@
   width: 80%;
   height: 100%;
 }
+
+@media (max-width: 600px) {
+  .seller-login-page {
+      width: 100vw;
+      height: 50vh;
+  }
+
+  .seller-form {
+      width: 90vw;
+      padding: 20px;
+  }
+
+  .seller-container {
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sellerImageContainer {
+      width: 100vw;
+      height: 50vh;
+  }
+
+  .seller-form input,
+  .seller-form button {
+      font-size: 12px;
+      padding: 10px;
+  }
+}

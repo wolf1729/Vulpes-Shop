@@ -82,7 +82,7 @@ function BuyerDashboard() {
 
   return (
     <>
-      <div>
+      <div className='buyerDashboardMainContainer'>
         <div className="buyertop">
           <p className="buyergreeting">Welcome, {buyerDetailArray.name}</p>
           <div className='searchContainer'>
@@ -91,7 +91,7 @@ function BuyerDashboard() {
                 <InputLeftElement pointerEvents='none'>
                   <CgSearch />
                 </InputLeftElement>
-                <Input type='text' placeholder='Product Name' value={searchValue} onChange={e => setSearchValue(e.target.value)} width='600px'/>
+                <Input type='text' placeholder='Product Name' value={searchValue} onChange={e => setSearchValue(e.target.value)} width={['200px', '600px']}/>
               </InputGroup>
             </Stack>
             <Button colorScheme='teal' className='searchButton' onClick={searchingProductWithNameFunction}>Search</Button>

@@ -77,7 +77,7 @@ function SellerDashboardPage() {
 
   return (
     <>
-      <div>
+      <div className='sellerDashboardMainContainer'>
         <div className="top">
           <p className="greeting">Welcome, {sellerDetails.name}</p>
           <div className="sellerbuttonContainer">

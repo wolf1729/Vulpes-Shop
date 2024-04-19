@@ -117,4 +117,32 @@
 .buyerButton:active {
     opacity: .5;
 }
-  
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .mainContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .imageContainer, .loginContainer {
+        width: 80vw;
+        height: 50vh;
+    }
+
+    .mainContainer h1 {
+        font-size: 40px;
+        margin: 20px;
+    }
+
+    .mainPageButtonContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sellerButton, .buyerButton {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}

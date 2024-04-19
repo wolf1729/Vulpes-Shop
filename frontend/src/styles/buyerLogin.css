@@ -6,6 +6,19 @@
     padding: 0px;
 } 
 
+.buyer-container {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Anta";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;            
+  justify-content: center;
+  justify-content: center;
+}
+
 .buyer-login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -69,17 +82,6 @@
   display: none;
 }
 
-.buyer-container {
-  height: 100vh;
-  width: 100vw;
-  font-family: "Anta";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;            
-}
-
 .buyerImageContainer{
   width: 60vw;
   height: 100vh;
@@ -98,4 +100,36 @@
 .buyerSignUpImage{
   width: 80%;
   height: 100%;
+}
+
+/* Desktop and mobile adjustments */
+@media (max-width: 600px) {
+  .buyer-login-page {
+      width: 100vw;
+      height: 50vh;
+  }
+
+  .buyer-form {
+      width: 90vw;
+      padding: 20px;
+  }
+
+  .buyer-container {
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buyerImageContainer {
+      width: 100vw;
+      height: 50vh;
+  }
+
+  .buyer-form input,
+  .buyer-form button {
+      font-size: 12px;
+      padding: 10px;
+  }
 }

@@ -59,6 +59,7 @@ const AddProductModal = ({ isOpen, onRequestClose }) => {
         onRequestClose={onRequestClose}
         contentLabel="Form Modal"
         style={customStyles}
+        size={['xs', 'lg']}
       >
         <form onSubmit={e=> e.preventDefault()}>
           <input type="text" placeholder='name of the product' value={productName} onChange={(e) => setProductName(e.target.value)} className='inputs textInput'/>

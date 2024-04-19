@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anta&family=Kode+Mono:wght@400..700&display=swap');
 
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.buyertop{
+.buyerDashboardMainContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.buyertop {
     width: 100vw;
     background-color: white;
     display: flex;
@@ -17,14 +25,14 @@
     height: 80px;
 }
 
-.buyergreeting{
+.buyergreeting {
     color: black;
     margin: 10px;
     font-family: 'Anta';
     font-size: 20px;
 }
 
-.buyerbuttonContainer{
+.buyerbuttonContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -32,7 +40,7 @@
     align-items: center;
 }
 
-.buyerlogoutButton, .buyercartButton{
+.buyerlogoutButton, .buyercartButton {
     margin-right: 20px;
 }
 
@@ -50,25 +58,25 @@
     font-weight: 800;
     line-height: 16px;
     min-height: 40px;
-    outline: 0;
+    outline: none;
     padding: 12px 14px;
     text-align: center;
     text-rendering: geometricprecision;
     text-transform: none;
     user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
 }
-  
-.buyerlogoutButton:hover, .sellerButton:active {
+
+.buyerlogoutButton:hover,
+.buyerlogoutButton:active {
     background-color: initial;
     background-position: 0 0;
     color: #FF4742;
 }
-  
+
 .buyerlogoutButton:active {
-    opacity: .5;
+    opacity: 0.5;
 }
 
 .buyercartButton {
@@ -85,28 +93,28 @@
     font-weight: 800;
     line-height: 16px;
     min-height: 40px;
-    outline: 0;
+    outline: none;
     padding: 12px 14px;
     text-align: center;
     text-rendering: geometricprecision;
     text-transform: none;
     user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
 }
-  
-.buyercartButton:hover, .sellerButton:active {
+
+.buyercartButton:hover,
+.buyercartButton:active {
     background-color: initial;
     background-position: 0 0;
     color: #405CF5;
 }
-  
+
 .buyercartButton:active {
-    opacity: .5;
+    opacity: 0.5;
 }
 
-.buyerProductContainer{
+.buyerProductContainer {
     margin-top: 30px;
     display: flex;
     flex-direction: row;
@@ -115,17 +123,13 @@
     justify-content: space-evenly;
 }
 
-.emptyCart{
+.emptyCart,
+.emptyBuyerDashboard {
     width: 500px;
     height: 500px;
 }
 
-.emptyBuyerDashboard{
-    width: 500px;
-    height: 500px;
-}
-
-.searchContainer{
+.searchContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -151,11 +155,22 @@
     cursor: pointer;
 }
 
-.logOutButtonContainer{
+.logOutButtonContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+
+    .buyerDashboardMainContainer{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
 }

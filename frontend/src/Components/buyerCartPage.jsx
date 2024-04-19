@@ -5,8 +5,16 @@ import EachProductTab from "./EachProductTab";
 import { getBuyerProductsAPI } from "../../utils/backendAPI";
 import { useNavigate } from "react-router-dom";
 import emptyCart from '../Images/noCartProduct.jpg'
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useDisclosure } from "@chakra-ui/react";
+import { useRef } from 'react';
+import { Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
+
 
 function BuyerCartPage() {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const btnRef = useRef()
     const [cookies, removeCookies] = useCookies(['user']);
     const user = cookies.user;
     const navigate = useNavigate()
@@ -73,13 +81,36 @@ function BuyerCartPage() {
             <div className="buyertop">
                 <p className="buyergreeting">Welcome, {buyerInfo.name}</p>
                 <div className="buyerbuttonContainer">
-                    <button className="buyerlogoutButton" onClick={handleLogout}>LogOut</button>
+                  <GiHamburgerMenu className='menuDrawer' onClick={onOpen} ref={btnRef}/>
+                  <div>
+                    <Drawer
+                    isOpen={isOpen}
+                    placement='right'
+                    onClose={onClose}
+                    finalFocusRef={btnRef}
+                    >
+                      <DrawerOverlay />
+                      <DrawerContent>
+                        <DrawerCloseButton />
+                        <DrawerHeader>Menu</DrawerHeader>
+                        <DrawerBody>
+                          <div className='drawerElement' onClick={() => navigate('/buyerDashboard')}>Home</div>
+                          <div className='drawerElement' onClick={() => navigate('/cartPage')}>Cart</div>
+                          <div className='drawerElement'>Chat</div>
+                          </DrawerBody>
+                          <DrawerFooter>
+                            <Button variant='outline' mr={3} onClick={handleLogout}>LogOut</Button>
+                            <Button colorScheme='red'>Delete Account</Button>
+                          </DrawerFooter>
+                      </DrawerContent>
+                    </Drawer>
+                  </div>
                 </div>
             </div>
             <div className='buyerProductContainer'>
             {showingAllCartProducts()}
             </div>
-      </div>
+        </div>
         </>
     )
 }

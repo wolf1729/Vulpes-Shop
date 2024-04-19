@@ -1,5 +1,5 @@
-const baseURL = "https://vulpesshopbackend.onrender.com"
-// const baseURL = "http://localhost:3000"
+// const baseURL = "https://vulpesshopbackend.onrender.com"
+const baseURL = "http://localhost:3000"
 
 const newSellerSignUp = async(username, password, name, phone) => {
     try{

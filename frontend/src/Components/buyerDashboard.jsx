@@ -9,10 +9,14 @@ import noBuyerProduct from '../Images/noBuyerProduct.jpg'
 import { Input, InputGroup, InputLeftElement, Stack } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/react'
 import { CgSearch } from "react-icons/cg";
-
-//THINGS TO ADD TO SELLER DASHBOARD: logout, showing all products, adding a product to cart
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useDisclosure } from '@chakra-ui/react';
+import { useRef } from 'react';
+import { Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from '@chakra-ui/react'
 
 function BuyerDashboard() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = useRef()
   // eslint-disable-next-line no-unused-vars
   const [productArray, setProductArray] = useState([])
   const [cookies, removeCookies] = useCookies(['user']);
@@ -93,8 +97,33 @@ function BuyerDashboard() {
             <Button colorScheme='teal' className='searchButton' onClick={searchingProductWithNameFunction}>Search</Button>
           </div>
           <div className="buyerbuttonContainer">
-            <button className='buyercartButton' onClick={() => navigate('/cartPage')}>Cart</button>
-            <button className="buyerlogoutButton" onClick={handleLogout}>LogOut</button>
+            <GiHamburgerMenu className='menuDrawer' onClick={onOpen} ref={btnRef}/>
+            <div>
+            <Drawer
+            isOpen={isOpen}
+            placement='right'
+            onClose={onClose}
+            finalFocusRef={btnRef}
+            >
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>Menu</DrawerHeader>
+
+                <DrawerBody>
+                  <div className='drawerElement' onClick={() => navigate('/buyerDashboard')}>Home</div>
+                  <div className='drawerElement' onClick={() => navigate('/cartPage')}>Cart</div>
+                  <div className='drawerElement'>Chat</div>
+                </DrawerBody>
+
+                <DrawerFooter>
+                  <div className='logOutButtonContainer'>
+                    <Button onClick={handleLogout} colorScheme='red'>LogOut</Button>
+                  </div>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
+            </div>
           </div>
         </div>
         <div className='buyerProductContainer'>

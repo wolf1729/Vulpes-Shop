@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const mainRoute = require('../backend/router/mainRoute');
 const sellerRoute = require('../backend/router/sellerAuthRoutes');
 const buyerRoute = require('../backend/router/buyerAuthRoutes');
-const messageRoute = require('../backend/router/messageRoute')
 require('dotenv').config();
 
 const app = express();
@@ -37,7 +36,6 @@ app.use(cors(corsOptions))
 app.use('/', mainRoute);
 app.use('/sellerAuth', sellerRoute);
 app.use('/buyerAuth', buyerRoute);
-app.use('/message', messageRoute)
 
 // Start the server
 app.listen(port, async () => {

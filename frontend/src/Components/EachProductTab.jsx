@@ -4,9 +4,11 @@ import { addProductToCart, removeProductFromCart } from '../../utils/buyerAPI';
 import { deleteProduct } from '../../utils/backendAPI';
 import { removeProductid } from '../../utils/sellerAPI';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react';
 
 // eslint-disable-next-line react/prop-types
 function EachProductTab({ productName, productPrice, productImg, productId, isBuyer=true, isCart=false }) {
+    const toast = useToast()
     const navigate = useNavigate()
     const [cookies] = useCookies(['user']);
     const user = cookies.user
@@ -14,7 +16,12 @@ function EachProductTab({ productName, productPrice, productImg, productId, isBu
     const addProductToCartFunction = async () => {
         try {
             await addProductToCart(user.buyerId, productId);
-            console.log('Product added to Cart');
+            toast({
+                title: 'Product added to Cart',
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            })
         } 
         catch (err) {
             console.log(err);
@@ -23,9 +30,16 @@ function EachProductTab({ productName, productPrice, productImg, productId, isBu
 
     const deletingProductFromCart = async() => {
         try{
-            await removeProductFromCart(user.buyerId, productId)
-            console.log('Product deleted from Cart')
-            navigate('/sellerDashboard')
+            const result = await removeProductFromCart(user.buyerId, productId)
+            if (result.result === true){
+                toast({
+                    title: 'Product Deleted from Cart',
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: true,
+                })
+            }
+            navigate('/buyerDashboard')
         }
         catch(err) {
             console.log(err)
@@ -35,7 +49,6 @@ function EachProductTab({ productName, productPrice, productImg, productId, isBu
     const deleteingProductFunction = async() => {
         try{
             await deleteProduct(productId)
-            console.log('Item deleted')
         }
         catch(err) {
             console.log(err)
@@ -45,7 +58,6 @@ function EachProductTab({ productName, productPrice, productImg, productId, isBu
     const deletingProductIdFunction = async() => {
         try{
             await removeProductid(user.sellerId, productId)
-            console.log('ProductId deleted')
         }
         catch(err) {
             console.log(err)
@@ -55,6 +67,12 @@ function EachProductTab({ productName, productPrice, productImg, productId, isBu
     const completeDeletion = () => {
         deleteingProductFunction()
         deletingProductIdFunction()
+        toast({
+            title: 'Product deleted',
+            status: 'warning',
+            duration: 3000,
+            isClosable: true,
+        })
     }
 
     const navigationFunction = (e) => {
@@ -74,7 +92,7 @@ function EachProductTab({ productName, productPrice, productImg, productId, isBu
             return (
                 <>
                     <button className='detailsButton' onClick={() => navigationFunction(`/buyerProductPage/${productId}`)}>Details</button>
-                    <button className='cartRemoveButton' onClick={() => deletingProductFromCart()}>Remove From Cart</button>
+                    <button className='cartRemoveButton' onClick={deletingProductFromCart}>Remove From Cart</button>
                 </>
             )
         }

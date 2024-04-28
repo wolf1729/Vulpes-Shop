@@ -5,7 +5,7 @@ const buyerAuthController = require('../controllers/buyerAuthController')
 //API to Sign up
 buyerAuthRouter.post('/sign-up', buyerAuthController.addNewBuyer)
 
-//API to Login
+//API to Login 
 buyerAuthRouter.post('/login', buyerAuthController.loginExistingBuyer)
 
 //API to get buyer details after the login

@@ -24,15 +24,12 @@ function BuyerDashboard() {
   const [searchValue, setSearchValue] = useState('')
   const user = cookies.user;
   const navigate = useNavigate();
-  console.log(user);
 
   useEffect(() => {
     const getAllProducts = async() => {
       try{
         const res = await allProducts()
         await setProductArray(res)
-        console.log(`in productArray ${productArray}`)
-        console.log(res)
       }
       catch(err) {
         console.log(err)

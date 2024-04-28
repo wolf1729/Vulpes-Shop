@@ -78,7 +78,7 @@ const addProductId = async(id, productId) => {
             }
         })
         const data = await response.json()
-        return data
+        return data 
     }
     catch(err) {
         console.log(err)
@@ -112,7 +112,7 @@ const gettingBasicSellerDetails = async(id) => {
         const response = await fetch(`${baseURL}/sellerAuth/sellerBasicDetails`, {
             method: 'POST',
             body: JSON.stringify({
-                id: id
+                userId: id 
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"

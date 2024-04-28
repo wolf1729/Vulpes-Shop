@@ -5,15 +5,18 @@ import { addProductAPI } from '../../utils/backendAPI';
 import { addProductId } from '../../utils/sellerAPI';
 import { useCookies } from 'react-cookie';
 import { uploadFileInStorage } from '../../utils/firebase';
+import { useToast } from '@chakra-ui/react'
 import '../styles/addProductModalStyle.css'
 
 // eslint-disable-next-line no-unused-vars
 const AddProductModal = ({ isOpen, onRequestClose }) => {
+  const toast = useToast()
   const [cookies] = useCookies(['user']);
   const user = cookies.user;
   const [productName, setProductName] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [selectedFile, setSelectedFile] = useState('')
+  // eslint-disable-next-line no-unused-vars
   const [productId, setProductID] = useState('')
   const [productDes, setProductDes] = useState('')
 
@@ -34,13 +37,22 @@ const AddProductModal = ({ isOpen, onRequestClose }) => {
       const downloadURL = await uploadFileInStorage(selectedFile, productName)
       const res = await addProductAPI(productName, productPrice, downloadURL, productDes, user.sellerId)
       setProductID(res)
-      console.log(productId)
-      console.log(user.username)
       await addProductId( user.sellerId, res)
-      console.log('Product added to the seller Database')
+      toast({
+        title: 'Product Added, please refresh!',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
     }
     catch(err) {
       console.log(err)
+      toast({
+        title: 'Something went wrong!',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      })
     }
     
     onRequestClose()
@@ -49,7 +61,6 @@ const AddProductModal = ({ isOpen, onRequestClose }) => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
-    console.log('Selected file:', file);
   };
 
   return (

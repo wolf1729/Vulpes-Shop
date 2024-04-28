@@ -1,5 +1,5 @@
 import '../styles/productPageStyle.css'
-import { Card, CardBody, Image, Text, Stack, Heading, CardFooter, Button } from '@chakra-ui/react'
+import { Card, CardBody, Image, Text, Stack, Heading, CardFooter, Button, useToast } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getDetails, deleteProduct } from '../../utils/backendAPI'
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { removeProductid } from '../../utils/sellerAPI'
 
 function SellerProductPage() {
+    const toast = useToast()
     const { productId } = useParams()
     const navigate = useNavigate()
     const [details, setDetails] = useState([])
@@ -30,7 +31,6 @@ function SellerProductPage() {
     const deleteingProductFunction = async() => {
         try{
             await deleteProduct(productId)
-            console.log('Item deleted')
         }
         catch(err) {
             console.log(err)
@@ -40,7 +40,6 @@ function SellerProductPage() {
     const deletingProductIdFunction = async() => {
         try{
             await removeProductid(sellerId, productId)
-            console.log('ProductId deleted')
         }
         catch(err) {
             console.log(err)
@@ -50,6 +49,12 @@ function SellerProductPage() {
     const completeDeletion = () => {
         deleteingProductFunction()
         deletingProductIdFunction()
+        toast({
+            title: 'Product deleted',
+            status: 'warning',
+            duration: 3000,
+            isClosable: true,
+        })
         navigate('/sellerDashboard')
     }
 

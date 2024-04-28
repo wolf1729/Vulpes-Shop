@@ -21,7 +21,6 @@ function BuyerLoginPage() {
     const buyerLoginFunction = async () => {
         try {
             const response = await existingBuyerUserDetails(username, password);
-            console.log(response);
             
             if (response.buyerId === null) {
                 // Show error toast if buyerId is null

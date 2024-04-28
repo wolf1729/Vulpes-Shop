@@ -91,8 +91,10 @@ const removeProductFromCart = asyncHandler(async(req, res) => {
 
     try{
         await buyerAuthModel.updateOne({ "_id": userId }, { $pull: { "cart" : productId }})
+        res.json({ result: true })
     }
     catch(err) {
+        res.json({ result: false })
         console.log(err)
     }
 })

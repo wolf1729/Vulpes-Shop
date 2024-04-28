@@ -23,8 +23,6 @@ function SellerSignupPage() {
                 duration: 4000,
                 isClosable: true,
             });
-
-            console.log('Seller created')
             navigationFunction('/sellerLogin')
         }
         catch(err) {

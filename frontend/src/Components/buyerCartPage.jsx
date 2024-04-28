@@ -99,8 +99,9 @@ function BuyerCartPage() {
                           <div className='drawerElement'>Chat</div>
                           </DrawerBody>
                           <DrawerFooter>
-                            <Button variant='outline' mr={3} onClick={handleLogout}>LogOut</Button>
-                            <Button colorScheme='red'>Delete Account</Button>
+                            <div className='logOutButtonContainer'>
+                              <Button onClick={handleLogout} colorScheme='red'>LogOut</Button>
+                            </div>
                           </DrawerFooter>
                       </DrawerContent>
                     </Drawer>

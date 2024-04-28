@@ -33,7 +33,6 @@ app.use(cors(corsOptions))
 app.use('/', mainRoute);
 app.use('/sellerAuth', sellerRoute);
 app.use('/buyerAuth', buyerRoute);
-app.use('/message', messageRoute)
 
 // Start the server
 app.listen(port, async () => {

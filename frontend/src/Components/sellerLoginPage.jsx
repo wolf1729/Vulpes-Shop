@@ -29,6 +29,13 @@ function SellerLoginPage() {
                 return;
             }
 
+            toast({
+                title: 'Login successful.',
+                status: 'success',
+                duration: 4000,
+                isClosable: true,
+            });
+
             // Set user details and cookie, then navigate to the dashboard
             setCookie('user', response);
             navigate('/sellerDashboard');

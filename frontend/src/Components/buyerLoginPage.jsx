@@ -32,6 +32,12 @@ function BuyerLoginPage() {
                 });
                 return
             }
+            toast({
+                title: 'Login successful.',
+                status: 'success',
+                duration: 4000,
+                isClosable: true,
+            });
 
             // Set the user cookie and navigate to dashboard if login is successful
             setCookie('user', response);

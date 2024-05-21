@@ -19,10 +19,11 @@ const addNewSeller = asyncHandler( async(req, res) => {
         
         const newUser = new sellerAuthModel(userDetails);
         await newUser.save();
-        res.send('New User Added')
+        res.json({ status: true })
     }
     catch(err) {
         console.log(err)
+        res.json({ status: false })
     }
 })
 

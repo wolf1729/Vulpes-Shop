@@ -15,7 +15,17 @@ function SellerSignupPage() {
 
     const makeNewSellerUser = async() => {
         try{
-            await newSellerSignUp(username, password, name, phone)
+            const result = await newSellerSignUp(username, password, name, phone)
+            console.log(result.status)
+
+            if(result.status === false) {
+                toast({
+                    title: 'Something went wrong, Please try again',
+                    status: 'error',
+                    duration: 4000,
+                    isClosable: true,
+                });
+            }
 
             toast({
                 title: 'Seller account created successfully.',

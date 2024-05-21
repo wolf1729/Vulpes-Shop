@@ -3,7 +3,7 @@ const baseURL = "https://vulpesshopbackend.onrender.com"
 
 const newSellerSignUp = async(username, password, name, phone) => {
     try{
-        fetch(`${baseURL}/sellerAuth/sign-up`, {
+        const details = await fetch(`${baseURL}/sellerAuth/sign-up`, {
             method: 'POST',
 
             body: JSON.stringify({
@@ -12,12 +12,14 @@ const newSellerSignUp = async(username, password, name, phone) => {
                 name: name,
                 phone: phone,
                 products: []
-            }),
+            }), 
 
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
+        const sendingResult = await details.json()
+        return sendingResult
     }
     catch(err) {
         console.log(err)

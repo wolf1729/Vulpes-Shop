@@ -16,7 +16,6 @@ function SellerSignupPage() {
     const makeNewSellerUser = async() => {
         try{
             const result = await newSellerSignUp(username, password, name, phone)
-            console.log(result.status)
 
             if(result.status === false) {
                 toast({

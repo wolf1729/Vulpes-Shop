@@ -3,7 +3,7 @@ const baseURL = "https://vulpesshopbackend.onrender.com"
 
 const newBuyerSignUp = async(name, username, password) => {
     try{
-        fetch(`${baseURL}/buyerAuth/sign-up`, {
+        const response = await fetch(`${baseURL}/buyerAuth/sign-up`, {
             method: 'POST',
 
             body: JSON.stringify({
@@ -17,6 +17,8 @@ const newBuyerSignUp = async(name, username, password) => {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
+        const sendingResult = await response.json()
+        return sendingResult.status
     }
     catch(err) {
         console.log(err)

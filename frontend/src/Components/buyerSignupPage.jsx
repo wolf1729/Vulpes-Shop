@@ -14,7 +14,16 @@ function BuyerSignupPage() {
 
     const makeNewUser = async () => {
         try {
-            await newBuyerSignUp(name, username, password);
+            const result = await newBuyerSignUp(name, username, password);
+
+            if (result === false){
+                toast({
+                    title: 'Something went wrong, please try again',
+                    status: 'error',
+                    duration: 4000,
+                    isClosable: true,
+                });
+            }
 
             toast({
                 title: 'Buyer account created successfully.',
